@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+							<!-- end filter sort -->
+
+							<!-- search -->
+							<form action="#" class="main__title-form">
+								<input type="text" placeholder="Find movie / tv series..">
+								<button type="button">
+									<i class="icon ion-ios-search"></i>
+								</button>
+							</form>
+							<!-- end search -->
+						</div>
+					</div>
+				</div>
+				<!-- end main title -->
+
+				<!-- users -->
+				<div class="col-12">
+					<div class="container" style="width: 30cm;" >
+						<table border="5" >
+							<thead>
+								<tr style="color: beige;">
+									<th>IMAGE</th>
+									<th>TITLE</th>
+									<th>DESCRIPTION</th>
+									<th>RELEASEYEAR</th>
+									<th>RUNTIME</th>
+									<th>QUALITY</th>
+									<th>COUNTRY</th>
+									<th>GENRE</th>
+									
+									
+
+					
+								</tr>
+							</thead>
+
+							<tbody>
+
+
+    
+</tr>
+{% for i in data %}
+<tr style="text-align: center; color: rgb(97, 97, 12);">
+        <td><img src="{{i.image.url}}" alt="" style="height: 4cm;"></td>
+		<td>{{i.title}}</td>
+		<td>{{i.description}}</td>
+		<td>{{i.releaseyear}}</td>
+		<td>{{i.runtime}}</td>
+		<td>{{i.quality}}</td>
+		<td>{{i.country}}</td>
+		<td>{{i.genre}}</td>
+		
+       
+    {% endfor %}
+
+
+</table>
+	</div>
+	
+</body>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="col-12">
+    <div class="container" style="width: 30cm;" >
+        <table border="5" >
+            <thead>
+                <tr style="color: beige;">
+                    <th>NAME</th>
+                    <th>EMAIL</th>
+                    <th>SUBJECT</th>
+                    <th>MESSAGE</th>
+                    <th>AREAS</th>
+                    <th>COMMENT</th>
+                    <th>RATING</th>
+                </tr>
+            </thead>
+
+{% for i in data %}
+<tr style="text-align: center; color: rgb(97, 97, 12);">
+<td>{{i.name}}</td>
+<td>{{i.email}}</td>
+<td>{{i.subject}}</td>
+<td>{{i.message}}</td>
+<td>{{i.areas}}</td>
+<td>{{i.comment}}</td>
+<td>{{i.rating}}</td>
+</tr>
+{% endfor %}
+
+
+</table>
+{% endblock %}

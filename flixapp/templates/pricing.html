@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+{% block contents %}
+{% block price %}
+{% endblock %}
+<section class="section section--border">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-xl-10">
+                <h2 class="section__title section__title--mb"><b>Priflix</b> – Best Place for Movies</h2>
+
+                <p class="section__text"> Priflix offers a variety of plans to meet your entertainment needs.
+
+                    As a Priflix member, you are charged monthly on the date you signed up. A Priflix account is for people who live together in a single household.</p>
+
+                <p class="section__text"></p>
+            </div>
+        </div>
+        
+        <div class="row row--grid">
+            {% for i, j in final_data %}
+            <!-- price -->
+            
+          
+            <!-- end price -->
+
+            <!-- price -->
+            <div class="col-12 col-md-12 col-lg-4 order-md-1 order-lg-2">
+                <div class="price price--premium">
+                    <div class="price__item price__item--first"><span></span> <span><b>{{i.name}}</b> <sub><b>>>{{i.price}}//Month</b></sub></span></div>
+                    <div class="price__item"><span><i class="icon ion-ios-checkmark"></i ><b style="color: rgb(243, 240, 247);">{{i.price}} /-</b></span></div>
+                    <div class="price__item"><span><i class="icon ion-ios-checkmark"></i> <b style="color: rgba(248, 246, 225,246);">{{i.validity}} days</b></span></div>
+                    <div class="price__item"><span><i class="icon ion-ios-checkmark"></i> <b style="color: rgb(248, 246, 246);">{{i.features}}</b></span></div>
+                    <div class="price__item"><span><i class="icon ion-ios-checkmark"></i> plan expires in</b> <b style="color: palegreen;">>{{j}}</b></span></div>
+                    <div class="price__item price__item--none"><span><i class="icon ion-ios-close"></i> <b>24/7 Support</b></span></div>
+                    <a href="{% url 'payment' i.id %}" class="price__btn">Choose Plan</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+       
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'index.html' %}
+{% block contents %}
+
+<section class="section section--details section--bg" data-bg="img/section/details.jpg">
+    <!-- details content -->
+    <div class="container">
+        <div class="row">
+            <!-- title -->
+            {% for i in data1 %}
+            <div class="col-12">
+                <h1 class="section__title section__title--mb">{{i.title}}</h1>
+            </div>
+            <!-- end title -->
+
+            <!-- content -->
+            <div class="col-12 col-xl-6">
+                <div class="card card--details">
+                    <div class="row">
+                        <!-- card cover -->
+                        <div class="col-12 col-sm-5 col-md-4 col-lg-3 col-xl-5">
+                            <div class="card__cover">
+                                <img src="{{i.image.url}}" alt="">
+
+                            </div>
+                            <a href="http://www.youtube.com/watch?v=0O2aH4XLbto" class="card__trailer"><i class="icon ion-ios-play-circle"></i> Watch trailer</a>
+                        </div>
+                        <!-- end card cover -->
+
+                        <!-- card content -->
+                        <div class="col-12 col-md-8 col-lg-9 col-xl-7">
+                            <div class="card__content">
+                                <ul class="card__meta">
+                                    <li><span>Director:</span> Vince Gilligan</li>
+                                    <li><span>Cast:</span> <a href="#">Brian Cranston</a> <a href="#">Jesse Plemons</a> <a href="#">Matt Jones</a> <a href="#">Jonathan Banks</a> <a href="#">Charles Baker</a> <a href="#">Tess Harper</a></li>
+                                    <li><span>Genre:</span> <a href="#">{{i.genre}}</a>
+                                    <a href="#">Triler</a></li>
+                                    <li><span>Release year:</span>{{i.releaseyear}} </li>
+                                    <li><span>Running time:</span>{{i.runtime}} </li>
+                                    <li><span>Country:</span> <a href="#">{{i.country}}</a></li>
+                                </ul>
+                                <div class="card__description">
+                                {{i.description}}                        </div>
+                            </div>
+                        </div>
+                        <!-- end card content -->
+                    </div>
+                </div>
+            </div>
+            <!-- end content -->
+
+            <!-- player -->
+            <div class="col-12 col-xl-6">
+                <video controls crossorigin playsinline poster="../../cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg" id="player">
+                    <!-- Video files -->
+                    <source src="{{i.video.url}}" type="video/mp4" size="576">
+                    <!-- <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4" type="video/mp4" size="720">
+                    <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4" type="video/mp4" size="1080"> -->
+
+                    <!-- Caption files -->
+                    <track kind="captions" label="English" srclang="en" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.en.vtt"
+                        default>
+                    <track kind="captions" label="Français" srclang="fr" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.fr.vtt">
+
+                    <!-- Fallback for browsers that don't support the <video> element -->
+                    <a href="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" download>Download</a>
+                </video>
+            </div>
+            {% endfor %}
+            <!-- end player -->
+        </div>
+    </div>
+    <!-- end details content -->
+</section>
+
+{% endblock %}

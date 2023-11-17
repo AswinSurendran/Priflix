@@ -1,0 +1,350 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from hotflix.volkovdesign.com/admin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Oct 2023 16:25:06 GMT -->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap-reboot.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap-grid.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+	<link rel="stylesheet" href="{% static 'css/jquery.mCustomScrollbar.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/select2.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/admin.css' %}">
+
+	<!-- Favicons -->
+	<link rel="icon" type="image/png" href="{% static 'icon/favicon-32x32.png' %}" sizes="32x32">
+	<link rel="apple-touch-icon" href="{% static 'icon/favicon-32x32.png' %}">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="Dmitry Volkov">
+	<title>HotFlix – Online Movies, TV Shows & Cinema HTML Template</title>
+
+</head>
+<body>
+	<!-- header -->
+	<header class="header">
+		<div class="header__content">
+			<!-- header logo -->
+			<a href="index.html" class="header__logo">
+				<img src="{% static 'img/logo.svg' %}" alt="">
+			</a>
+			<!-- end header logo -->
+
+			<!-- header menu btn -->
+			<button class="header__btn" type="button">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+			<!-- end header menu btn -->
+		</div>
+	</header>
+	<!-- end header -->
+
+	<!-- sidebar -->
+	<div class="sidebar">
+		<!-- sidebar logo -->
+		<a href="index.html" class="sidebar__logo">
+			<img src="{% static 'img/logo.svg' %}" alt="">
+		</a>
+		<!-- end sidebar logo -->
+		
+		<!-- sidebar user -->
+		<div class="sidebar__user">
+			<div class="sidebar__user-img">
+				<img src="{% static 'img/user.svg' %}" alt="">
+			</div>
+
+			<div class="sidebar__user-title">
+				<span>Admin</span>
+				<p>ASWIN</p>
+			</div>
+
+			<button class="sidebar__user-btn" type="button">
+				<i class="icon ion-ios-log-out"></i>
+			</button>
+		</div>
+		<!-- end sidebar user -->
+
+		<!-- sidebar nav -->
+		<div class="sidebar__nav-wrap">
+			<ul class="sidebar__nav">
+				<li class="sidebar__nav-item">
+					<a href="{% url 'base' %}" class="sidebar__nav-link sidebar__nav-link--active"><i class="icon ion-ios-keypad"></i> <span>Dashboard</span></a>
+				</li>
+
+				<li class="sidebar__nav-item">
+					<a href="{% url 'catalog' %}" class="sidebar__nav-link"><i class="icon ion-ios-film"></i> <span>Catalog</span></a>
+				</li>
+
+				<!-- collapse -->
+				<li class="sidebar__nav-item">
+					<a class="sidebar__nav-link" data-toggle="collapse" href="#collapseMenu" role="button" aria-expanded="false" aria-controls="collapseMenu"><i class="icon ion-ios-copy"></i> <span>Pages</span> <i class="icon ion-md-arrow-dropdown"></i></a>
+
+					<ul class="collapse sidebar__menu" id="collapseMenu">
+						<li><a href="{% url 'additem' %}">Add item</a></li>
+						<li><a href="edit-user.html">Edit user</a></li>
+						<li><a href="signin.html">Sign in</a></li>
+						<li><a href="signup.html">Sign up</a></li>
+						<li><a href="forgot.html">Forgot password</a></li>
+						<li><a href="404.html">404 page</a></li>
+					</ul>
+				</li>
+				<!-- end collapse -->
+
+				<li class="sidebar__nav-item">
+					<a href="{% url 'registable' %}" class="sidebar__nav-link"><i class="icon ion-ios-contacts"></i> <span>Users</span></a>
+				</li>
+
+				<li class="sidebar__nav-item">
+					<a href="{% url 'contacttable' %}" class="sidebar__nav-link"><i class="icon ion-ios-chatbubbles"></i> <span>Comments</span></a>
+				</li>
+
+				<li class="sidebar__nav-item">
+					<a href="{% url 'contacttable' %}" class="sidebar__nav-link"><i class="icon ion-ios-star-half"></i> <span>Reviews</span></a>
+				</li>
+
+				<li class="sidebar__nav-item">
+					<a href="{% url 'base' %}" class="sidebar__nav-link"><i class="icon ion-ios-arrow-round-back"></i> <span>Back to Priflix</span></a>
+				</li>
+			</ul>
+		</div>
+		<!-- end sidebar nav -->
+		
+		<!-- sidebar copyright -->
+		<div class="sidebar__copyright">© PRIFLIX, 2023
+			. <br>Create by <a href="https://themeforest.net/user/dmitryvolkov/portfolio" target="_blank">ASWIN SURENDRAN</a></div>
+		<!-- end sidebar copyright -->
+	</div>
+	<!-- end sidebar -->
+
+	<!-- main content -->
+	{% block content %}
+	<main class="main">
+		<div class="container-fluid">
+			<div class="row row--grid">
+				<!-- main title -->
+				<div class="col-12">
+					<div class="main__title">
+						<h2>Dashboard</h2>
+
+						<a href="{% url 'additem' %}" class="main__title-link">add item</a>
+					</div>
+				</div>
+				<!-- end main title -->
+
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="stats">
+						<span>Categories</span>
+						<p>{{category}}</p>
+						<i class="icon ion-ios-stats"></i>
+					</div>
+				</div>
+				<!-- end stats -->
+
+				<!-- stats -->
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="stats">
+						<span>Total Items</span>
+						<p>{{item}}</p>
+						<i class="icon ion-ios-film"></i>
+					</div>
+				</div>
+				<!-- end stats -->
+
+				<!-- stats -->
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="stats">
+						<span>Total comments</span>
+						<p>{{comment}}</p>
+						<i class="icon ion-ios-chatbubbles"></i>
+					</div>
+				</div>
+				<!-- end stats -->
+
+				<!-- stats -->
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="stats">
+						<span>Total reviews</span>
+						<p>{{review}}</p>
+						<i class="icon ion-ios-star-half"></i>
+					</div>
+				</div>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<div class="stats">
+						<span>Total Users</span>
+						<p>{{user}}</p>
+						<i class="icon ion-ios-star-half"></i>
+					</div>
+				<!-- end stats -->
+						</div>
+
+						<
+															
+									</tr>
+								</thead>
+								
+							</table>
+						</div>
+					</div>
+				</div>
+				<!-- end dashbox -->
+
+				<!-- dashbox -->
+				<div class="col-12 col-xl-12">
+					<div class="dashbox">
+						<div class="dashbox__title">
+							<h3><i class="icon ion-ios-film"></i> Latest items</h3>
+
+							<div class="dashbox__wrap">
+								<a class="dashbox__refresh" href="#"><i class="icon ion-ios-refresh"></i></a>
+								<a class="dashbox__more" href="catalog.html">View All</a>
+							</div>
+						</div>
+
+						<div class="col-12">
+							<div class="container" style="width: 30cm;" >
+								<table border="5" >
+									<thead>
+										<tr style="color: beige;">
+											<th>IMAGE</th>
+											<th>TITLE</th>
+											<th>DESCRIPTION</th>
+											<th>RELEASEYEAR</th>
+											<th>RUNTIME</th>
+											<th>QUALITY</th>
+											<th>COUNTRY</th>
+											<th>GENRE</th>
+								</thead>
+								{% for i in data2 %}
+<tr style="text-align: center; color: rgb(238, 238, 233);">
+        <td><img src="{{i.image.url}}" alt="" style="height: 4cm;"></td>
+		<td>{{i.title}}</td>
+		<td>{{i.description}}</td>
+		<td>{{i.releaseyear}}</td>
+		<td>{{i.runtime}}</td>
+		<td>{{i.quality}}</td>
+		<td>{{i.country}}</td>
+		<td>{{i.genre}}</td>
+		
+       
+    {% endfor %}
+
+							</table>
+						</div>
+					</div>
+				</div>
+				<!-- end dashbox -->
+
+				<!-- dashbox -->
+				<div class="col-12 col-xl-12">
+					<div class="dashbox">
+						<div class="dashbox__title">
+							<h3><i class="icon ion-ios-contacts"></i> Latest users</h3>
+
+							<div class="dashbox__wrap">
+								<a class="dashbox__refresh" href="#"><i class="icon ion-ios-refresh"></i></a>
+								<a class="dashbox__more" href=" ">View All</a>
+							</div>
+						</div>
+
+						<div class="col-12">
+							<div class="container" style="width: 30cm; margin-left: 4cm;" >
+								<table border="5"  >
+									<thead>
+										<tr style="color: beige;">
+											<th>NAME</th>
+											<th>EMAIL</th>
+											<th>PASSWORD</th>
+											
+										</tr>
+									</thead>
+						
+						{% for i in data %}
+						<tr style="text-align: center; color: rgba(238, 238, 233);">
+						<td>{{i.name}}</td>
+						<td>{{i.email}}</td>
+						<td>{{i.password}}</td>
+						
+						</tr>
+						{% endfor %}
+						
+							</table>
+						</div>
+					</div>
+				</div>
+				<!-- end dashbox -->
+
+				<!-- dashbox -->
+				<div class="col-12 col-xl-12">
+					<div class="dashbox">
+						<div class="dashbox__title">
+							<h3><i class="icon ion-ios-star-half"></i> Latest reviews</h3>
+
+							<div class="dashbox__wrap">
+								<a class="dashbox__refresh" href="#"><i class="icon ion-ios-refresh"></i></a>
+								<a class="dashbox__more" href="reviews.html">View All</a>
+							</div>
+						</div>
+
+						<div class="col-12">
+							<div class="container" style="width: 30cm;" >
+								<table border="5" >
+									<thead>
+										<tr style="color: beige;">
+											<th>NAME</th>
+											<th>EMAIL</th>
+											<th>SUBJECT</th>
+											<th>MESSAGE</th>
+											<th>AREAS</th>
+											<th>COMMENT</th>
+											<th>RATING</th>
+										</tr>
+									</thead>
+						
+						{% for i in data1 %}
+						<tr style="text-align: center; color: rgb(238, 238, 233);">
+						<td>{{i.name}}</td>
+						<td>{{i.email}}</td>
+						<td>{{i.subject}}</td>
+						<td>{{i.message}}</td>
+						<td>{{i.areas}}</td>
+						<td>{{i.comment}}</td>
+						<td>{{i.rating}}</td>
+						</tr>
+						{% endfor %}
+						
+						
+
+
+								
+							</table>
+						</div>
+					</div>
+				</div>
+				<!-- end dashbox -->
+			</div>
+		</div>
+	</main>
+	{% endblock %}
+	
+	<!-- end main content -->
+
+	<!-- JS -->
+	<script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+	<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'js/jquery.mousewheel.min.js' %}"></script>
+	<script src="{% static 'js/jquery.mCustomScrollbar.min.js' %}"></script>
+	<script src="{% static 'js/select2.min.js' %}"></script>
+	<script src="{% static 'js/admin.js' %}"></script>
+	
+</body>
+
+<!-- Mirrored from hotflix.volkovdesign.com/admin/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Oct 2023 16:25:20 GMT -->
+</html>
